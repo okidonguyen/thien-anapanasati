@@ -1,0 +1,41 @@
+.ok-button{
+    padding: 7px;
+    border: solid 1px rgba(0, 0, 0, 0);
+}
+
+.ok-button:hover{
+    
+    border-radius: 100%;
+    background-color: #173f31;
+    color: white;
+}
+
+.ok-active{
+    border-radius: 100%;
+    background-color: #173f31;
+    color: white;
+}
+
+.ok-content{
+    padding-top: 64px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: calc(100vh - 80px);
+}
+
+.quotes-content::-webkit-scrollbar {
+    width: 4px;
+    cursor: pointer;
+    /*background-color: rgba(229, 231, 235, var(--bg-opacity));*/
+
+}
+.quotes-content::-webkit-scrollbar-track {
+    background-color: rgba(229, 231, 235, var(--bg-opacity));
+    cursor: pointer;
+    /*background: red;*/
+}
+.quotes-content::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background-color: #a0aec0;
+    /*outline: 1px solid slategrey;*/
+}

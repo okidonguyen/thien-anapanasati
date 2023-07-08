@@ -1,61 +1,36 @@
-import styles from '../styles/Home.module.css'
+import StickyNav from '../components/StickyNav';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+export default function Intro() {
+    
+    const router = useRouter();
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+    useEffect(() => {
+        // Auto advance the slideshow every 3 seconds
+        const interval = setInterval(() => {
+            router.push("/meditation")
+        }, 1500);
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    return (
+        <>
+            <h1 className=' absolute top-[20%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-3xl text-green-500  text-center'>
+                ANAPANASATI <br />
+                MEDITATION
+                <br />
+                <br />
+            </h1>
+            <div className='ok-content flex justify-center items-center'>
+                <div className="duration-75 rounded-full bg-[url('/img/marita-kavelashvili-ugnrXk1129g-unsplash.jpg')] bg-[length:450px] bg-center w-72 h-72 shadow-md">
+           
+                </div>
+            </div>
+            <StickyNav active={'Intro'} zen={false} />
+        </>
+    );
 }
